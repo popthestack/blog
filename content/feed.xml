@@ -1,0 +1,11 @@
+---
+feed_url: http://feeds.ryanmartinsen.com/blog
+---
+<%=
+params = {
+  :title => "Ryan Martinsen's Blog",
+  :limit => 10,
+}
+
+atom_feed(params)
+%>

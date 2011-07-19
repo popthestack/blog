@@ -1,0 +1,188 @@
+/*
+ *   I started with layout by Keith Donegan of http://www.code-sucks.com and customized it further.
+ */
+/* 
+ *   Reset first. Modified version of Eric Meyer and Paul Chaplin reset 
+ *     from http://meyerweb.com/eric/tools/css/reset/ 
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+center, dl, dt, dd,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+header, nav, post, footer
+{border: 0; margin: 0; outline: 0; padding: 0; background: transparent; vertical-align: baseline;}
+
+blockquote, q {quotes: none;}
+blockquote:before,blockquote:after,q:before,q:after {content: ''; content: none;}
+
+header, nav, post, footer {display: block;}
+
+body {
+ font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+ font-size: .9em;
+}
+#wrapper {
+ margin: 0 auto;
+ width: 670px;
+}
+a {
+ text-decoration: none;
+ color: #28B7E9;
+ /*for ryanware color: orange;*/}
+a:hover {
+ text-decoration: underline;
+}
+a:visited {
+ /*for ryanware color: #FF7E00;*/
+ /*color: #0099CF;*/
+}
+h1, h2, h3, h4, h5, h6 {
+ font-weight: normal;
+}
+h1 {
+ font-size: 1.5em;
+}
+h1, h1 a, h2 {
+ color: #A73911;
+}
+
+h2 {
+ font-size: 1em;
+}
+
+article {
+ border-bottom: 1px solid #DBDBDB;
+ margin-bottom: 2em;
+ padding-bottom: 1em;
+ display: block;
+}
+body.article article {
+ margin-bottom: 0;
+ padding-bottom: 0;
+}
+article:last-child, div.past-articles article, div.tagged-articles article {
+ border: none;
+}
+div.past-articles article, div.tagged-articles article {
+ padding-bottom: 0;
+ margin-bottom: 1em;
+}
+article h2, div.past-articles h2, div.tagged-articles h2 {
+ font-size: 0.8em;
+ color: gray;
+}
+article h2 a, div.past-articles h2 a, div.tagged-articles h2 a {
+ color: gray;
+ text-decoration: underline;
+}
+article div.meta {
+ color: gray;
+ font-size: 0.9em;
+}
+
+div.past-articles h1, div.past-articles h1 a, div.tagged-articles h1 a {
+ color: gray;
+}
+div.past-articles h1.previously {
+ font-size: 2.1em;
+ margin-bottom: 1em;
+}
+div.tagged-articles {
+ margin-top: 1.2em;
+}
+div.tagged-articles h1 {
+ font-size:1.7em;
+}
+
+div#comments {
+ border-top: 1px solid #DBDBDB;
+ margin-top: 2em;
+ color: gray;
+}
+
+div#archive h2 {
+ margin-top: 1em;
+}
+div#archive ul {
+ padding-left: 1.2em;
+ list-style: none;
+}
+
+body header {
+ width: 100%;
+ color: #333;
+ padding: 10px 0 10px 0;
+ height: 40px;
+ margin: 0px 0px 5px 0px;
+ background: #F5F5F5;
+ /*font-variant: small-caps;*/
+ text-transform: lowercase;
+}
+#inner-header {
+ margin: 0 auto;
+ width: 670px;
+ padding: 10px;
+}
+#inner-header .name {
+ float: left;
+ margin-top: -4px;
+ margin-left: -2px;
+}
+#inner-header .name a {
+ color: #333;
+ font-size: 2em;
+}
+#inner-header .name a:hover {
+ text-decoration: underline;
+}
+#inner-header .nav {
+ float: right;
+ font-size: 1.2em;
+ margin-top: 8px;
+}
+#inner-header .nav a {
+ padding-left:13px;
+ font-size: 0.9em;
+}
+
+#content {
+ width: 668px;
+ color: #333;
+ margin: 25px 2px 10px 2px;
+ padding: 5px 0 0 0;
+ line-height: 1.4em;
+ font-size: 0.95em;
+}
+
+blockquote {
+ border-left: 2px solid #CCC;
+ margin: 0 30px 15px 10px;
+ padding-left: 20px;
+}
+blockquote, strike {
+ color: #666666;
+}
+
+body footer {
+ color: #333;
+ width: 670px;
+ border-top: 1px solid #ccc;
+ margin: 0px 0px 25px 0px;
+ padding: 10px 0 0 0;
+ text-transform: lowercase;
+}
+body footer .footer-left {
+ float: left;
+}
+body footer .footer-right {
+ float: right;
+}
+body footer .footer-right a {
+ padding-left:10px;
+ font-size: .8em;
+}
+

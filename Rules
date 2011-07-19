@@ -1,0 +1,73 @@
+#!/usr/bin/env ruby
+
+# A few helpful tips about the Rules file:
+#
+# * The order of rules is important: for each item, only the first matching
+#   rule is applied.
+#
+# * Item identifiers start and end with a slash (e.g. “/about/” for the file
+#   “content/about.html”). To select all children, grandchildren, … of an
+#   item, use the pattern “/about/*/”; “/about/*” will also select the parent,
+#   because “*” matches zero or more characters.
+
+preprocess do
+  build_tag_pages
+end
+
+compile '/tag/*' do
+  filter :kramdown
+  filter :erb
+  layout 'tag-page'
+  layout 'default'
+end
+
+compile '/stylesheet/' do
+    # compress CSS
+    #filter :less
+    filter :rainpress
+end
+
+compile '/js/' do
+    #filter :'closure-compiler'
+end
+
+route '/article/*', :rep => :summary do
+  nil # Don't create files for summaries
+end
+
+compile '/article/*', :rep => :summary do
+  rep.filter :erb
+  rep.filter :kramdown
+end
+
+compile '/article/*' do
+  filter :erb
+  filter :kramdown
+  filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
+  layout 'article'
+  layout 'default'
+end
+
+compile '/feed/' do
+  filter :erb
+end
+
+route '/feed/' do
+  '/feed.xml'
+end
+
+compile '*' do
+  filter :erb
+  filter :kramdown
+  layout 'default'
+end
+
+route '/stylesheet/' do
+  '/style.css'
+end
+
+route '*' do
+  item.identifier + 'index.html'
+end
+
+layout '*', :erb

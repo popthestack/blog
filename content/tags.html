@@ -1,0 +1,12 @@
+--- 
+title: Tags
+---
+
+# Tags
+
+<ul class="tags">
+  <% tag_set.each do |tag| %>
+    <li><a href="/tag/<%= tag %>" class="" title="<%= items_with_tag(tag).count %> articles tagged <% tag %>"><%= tag %></a></li>
+  <% end %>
+</ul> 
+

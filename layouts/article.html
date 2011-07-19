@@ -1,0 +1,15 @@
+<% time = attribute_to_time(@item[:created_at]) %>
+<article>
+  <h1><%= @item[:title] %></h1>
+  <h2>
+    <time><%= time.strftime("%B %e, %Y") if time.is_a?(Time) %></time>
+    <% if @item[:tags] %><tags><%= tags_for(@item, {:base_url => '/tag/', :none_text => ''}) %></tags><% end %>
+  </h2>
+  <div class="post">
+    <%= yield %>
+  </div>
+  <div id="comments">
+    <p>Comments are temporarily disabled.</p>
+  </div>
+</article>
+
