@@ -12,12 +12,27 @@
 
 preprocess do
   build_tag_pages
+
+  if git_dev_branch?
+    # create draft page with list of drafts
+    @items << Nanoc3::Item.new(
+      "",
+      { :title => "Drafts", :layout => "drafts" },
+      "/drafts"
+    )
+  end
 end
 
 compile '/tag/*' do
   filter :kramdown
   filter :erb
   layout 'tag-page'
+  layout 'default'
+end
+
+compile '/drafts' do
+  filter :erb
+  layout 'drafts'
   layout 'default'
 end
 

@@ -11,6 +11,7 @@ include Nanoc3::Helpers::LinkTo
 #include Nanoc3::Helpers::XMLSitemap
 
 def git_dev_branch?
+  # TODO: What about feature branches? And tag branches?
   `git branch|grep -F '*'`.chomp == '* develop'
 end
 
@@ -27,6 +28,12 @@ def all_posts
     articles.select { |a| ['publish', 'draft'].include? a[:status] }
   else
     articles.select { |a| a[:status] == 'publish' }
+  end
+end
+
+def sorted_drafts
+  if git_dev_branch? then
+    sorted_articles.select { |a| a[:status] == 'draft' }
   end
 end
 
