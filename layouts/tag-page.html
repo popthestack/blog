@@ -1,9 +1,9 @@
 <h1><%= @item[:title] %></h1>
 
 <div class="tagged-articles">
-<% @site.items_with_tag(@item[:tag]).each do |post| %>
+<% @site.items_with_tag(@item[:tag], sorted_posts).each do |post| %>
   <article>
-    <h1><%= link_to(post[:title], post.path) %></h1>
+    <h1><%= "Draft: " if post[:status] == 'draft' %><%= link_to(post[:title], post.path) %></h1>
     <h2>
       <time><%= post[:created_at].strftime("%B %e, %Y") %></time>
     </h2>

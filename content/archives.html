@@ -11,7 +11,7 @@ title: Archives
 
  <ul>
  <% sorted_posts.select { |a| "#{a[:created_at].year}-#{a[:created_at].month}" == yearmonth }.each do |post| %>
-   <li><%= link_to(post[:title], post.path) %></li>
+   <li><%= "Draft: " if post[:status] == 'draft' %><%= link_to(post[:title], post.path) %></li>
  <% end %>
  </ul>
 <% end %>
