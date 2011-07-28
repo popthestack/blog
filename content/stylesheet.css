@@ -98,6 +98,16 @@ div.tagged-articles h1 {
  font-size:1.7em;
 }
 
+ul.tags {
+ padding-left: 0;
+}
+ul.tags li {
+ list-style: none;
+ display: inline;
+ margin-right: 12px;
+ margin-left: 0 !important;
+}
+
 div#comments {
  border-top: 1px solid #DBDBDB;
  margin-top: 2em;
@@ -160,7 +170,7 @@ body header {
 
 blockquote {
  border-left: 2px solid #CCC;
- margin: 0 30px 15px 10px;
+ margin: 15px 30px 15px 10px;
  padding-left: 20px;
 }
 blockquote, strike {
