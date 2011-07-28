@@ -24,7 +24,6 @@ preprocess do
 end
 
 compile '/tag/*' do
-  filter :kramdown
   filter :erb
   layout 'tag-page'
   layout 'default'
@@ -46,19 +45,19 @@ compile '/js/' do
     #filter :'closure-compiler'
 end
 
-route '/article/*', :rep => :summary do
-  nil # Don't create files for summaries
-end
+#route '/article/*', :rep => :summary do
+#  nil # Don't create files for summaries
+#end
 
-compile '/article/*', :rep => :summary do
-  rep.filter :erb
-  rep.filter :kramdown
-end
+#compile '/article/*', :rep => :summary do
+#  rep.filter :erb
+#  rep.filter :rdiscount
+#end
 
 compile '/article/*' do
   filter :erb
-  filter :kramdown
   filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
+  filter :rdiscount
   layout 'article'
   layout 'default'
 end
@@ -71,9 +70,14 @@ route '/feed/' do
   '/feed.xml'
 end
 
+compile '/' do
+  filter :erb
+  layout 'default'
+end
+
 compile '*' do
   filter :erb
-  filter :kramdown
+  filter :rdiscount
   layout 'default'
 end
 
