@@ -15,6 +15,7 @@ module TaggingExtra
       next if item[:tags].nil?
       item[:tags].each { |tag| tags << tag }
     end
+    tags = tags.sort_by { |tag| tag }
     tags.to_a
   end
 
