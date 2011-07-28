@@ -55,11 +55,21 @@ end
 #end
 
 compile '/article/*' do
-  filter :erb
-  filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
-  filter :rdiscount
-  layout 'article'
-  layout 'default'
+  if git_dev_branch? or @item[:status] == 'publish' then
+    filter :erb
+    filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
+    filter :rdiscount
+    layout 'article'
+    layout 'default'
+  end
+end
+
+route '/article/*' do
+  if git_dev_branch? or @item[:status] == 'publish' then
+    @item.identifier + 'index.html'
+  else
+    nil
+  end
 end
 
 compile '/feed/' do
