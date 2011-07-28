@@ -1,8 +1,7 @@
-<% time = attribute_to_time(@item[:created_at]) %>
 <article>
   <h1><%= "Draft: " if @item[:status] == 'draft' %><%= @item[:title] %></h1>
   <h2>
-    <time><%= time.strftime("%B %e, %Y") if time.is_a?(Time) %></time>
+    <time><%= @item[:created_at].strftime("%B %e, %Y") %></time>
     <% if @item[:tags] %><tags><%= tags_for(@item, {:base_url => '/tag/', :none_text => ''}) %></tags><% end %>
   </h2>
   <div class="post">
@@ -12,4 +11,3 @@
     <p>Comments are temporarily disabled.</p>
   </div>
 </article>
-
