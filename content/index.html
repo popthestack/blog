@@ -9,7 +9,7 @@ title:
       <% if post[:tags] %><tags><%= tags_for(post, {:base_url => '/tag/', :none_text => ''}) %></tags><% end %>
     </h2>
     <div class="post">
-     <%= post.compiled_content :rep => :summary %>
+     <%= post.compiled_content %>
     </div>
     <div class="meta">
       <%= link_to("Permalink", post.path) %><!-- | <%= link_to("Comments", post.path) %>-->

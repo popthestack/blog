@@ -2,7 +2,7 @@
 title: Archives
 ---
 
-# Archives
+<h1>Archives</h1>
 
 <div id="archive">
 <% sorted_posts.map { |a| "#{a[:created_at].year}-#{a[:created_at].month}" }.uniq.each do |yearmonth| %>
@@ -16,4 +16,3 @@ title: Archives
  </ul>
 <% end %>
 </div>
-
