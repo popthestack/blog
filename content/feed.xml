@@ -5,6 +5,7 @@ feed_url: http://feeds.ryanmartinsen.com/blog
 params = {
   :title => "Ryan Martinsen's Blog",
   :limit => 10,
+  :articles => all_posts,
 }
 
 atom_feed(params)
