@@ -47,6 +47,32 @@ module Nanoc3::Helpers
   end
 end
 
+def articles_by_year_month
+  result = {}
+  current_year = current_month = year_h = month_a = nil
+
+  sorted_articles.each do |item|
+    if current_year != item[:created_at].year
+      current_month = nil
+      current_year = item[:created_at].year
+      year_h = result[current_year] = {}
+    end
+
+    if current_month != item[:created_at].month
+      current_month = item[:created_at].month
+      month_a = year_h[current_month] = []
+    end
+
+    month_a << item
+  end
+
+  # why don't these come out sorted? bah.
+  result.each do |year, month|
+    result[year] = month.sort { |a,b| b[0]<=>a[0] }
+  end
+  result.sort { |a,b| b[0]<=>a[0] }
+end
+
 # String extensions
 # TODO: use unidecode instead? https://github.com/pjg/ruby_extensions/blob/master/lib/ruby_extensions.rb
 String.class_eval do

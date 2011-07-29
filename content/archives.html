@@ -5,14 +5,16 @@ title: Archives
 <h1>Archives</h1>
 
 <div id="archive">
-<% sorted_posts.map { |a| "#{a[:created_at].year}-#{a[:created_at].month}" }.uniq.each do |yearmonth| %>
- <a name="<%= yearmonth %>"></a>
- <%= "<h2>#{Time.gm(yearmonth.split('-')[0], yearmonth.split('-')[1]).strftime("%B %Y")}</h2>" %>
+  <% articles_by_year_month.each do |year, year_items| %>
+    <% year_items.each do |month, month_items| %>
+      <a name="<%= year %>-<%= month %>"></a>
+      <h2><%= "#{Date::MONTHNAMES[month]} #{year}" %></h2>
 
- <ul>
- <% sorted_posts.select { |a| "#{a[:created_at].year}-#{a[:created_at].month}" == yearmonth }.each do |post| %>
-   <li><%= "Draft: " if post[:status] == 'draft' %><%= link_to(post[:title], post.path) %></li>
- <% end %>
- </ul>
-<% end %>
+      <ul>
+        <% month_items.each do |post| %>
+          <li><%= "Draft: " if post[:status] == 'draft' %><%= link_to(post[:title], post.path) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
 </div>
