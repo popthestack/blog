@@ -29,7 +29,7 @@ preprocess do
   items.delete_if { |item| item[:status] == 'private' }
 
   items.each do |item|
-    item[:created_at] = Date.parse(item[:created_at]) if item[:created_at].is_a?(String)
+    item[:created_at] = item[:created_at].to_s unless item[:created_at].is_a?(String)
   end
 end
 

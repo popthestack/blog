@@ -52,14 +52,16 @@ def articles_by_year_month
   current_year = current_month = year_h = month_a = nil
 
   sorted_articles.each do |item|
-    if current_year != item[:created_at].year
+    d = Date.parse(item[:created_at])
+
+    if current_year != d.year
       current_month = nil
-      current_year = item[:created_at].year
+      current_year = d.year
       year_h = result[current_year] = {}
     end
 
-    if current_month != item[:created_at].month
-      current_month = item[:created_at].month
+    if current_month != d.month
+      current_month = d.month
       month_a = year_h[current_month] = []
     end
 

@@ -1,7 +1,7 @@
 <article>
   <h1><%= "Draft: " if @item[:status] == 'draft' %><%= @item[:title] %></h1>
   <h2>
-    <time><%= @item[:created_at].strftime("%B %e, %Y") %></time>
+    <time><%= Date.parse(@item[:created_at]).strftime("%B %e, %Y") %></time>
     <% if @item[:tags] %><tags><%= tags_for(@item, {:base_url => '/tag/', :none_text => ''}) %></tags><% end %>
   </h2>
   <div class="post">
