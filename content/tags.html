@@ -5,7 +5,7 @@ title: Tags
 <h1>Tags</h1>
 
 <ul class="tags">
-  <% tag_set.each do |tag| %>
-    <li><a href="/tag/<%= tag.to_slug %>" class="" title="<%= items_with_tag(tag).count %> articles tagged <% tag %>"><%= tag %></a></li>
+  <% count_tags.sort_by{ |k,v| k }.each do |tag,count| %>
+    <li><a href="/tag/<%= tag.to_slug %>" class="" title="<%= count %> articles tagged <%= tag %>"><%= tag %></a></li>
   <% end %>
 </ul> 
