@@ -15,33 +15,15 @@ def git_dev_branch?
   `git branch|grep -F '*'`.chomp == '* develop'
 end
 
-def sorted_posts
-  if git_dev_branch? then
-    sorted_articles.select { |a| ['publish', 'draft'].include? a[:status] }
-  else
-    sorted_articles.select { |a| a[:status] == 'publish' }
-  end
-end
-
-def all_posts
-  if git_dev_branch? then
-    articles.select { |a| ['publish', 'draft'].include? a[:status] }
-  else
-    articles.select { |a| a[:status] == 'publish' }
-  end
-end
-
 def sorted_drafts
-  if git_dev_branch? then
-    sorted_articles.select { |a| a[:status] == 'draft' }
-  end
+  sorted_articles.select { |a| a[:status] == 'draft' }
 end
 
 def build_tag_pages
-  all_tags = all_posts.map { |a| a[:tags] }.flatten.compact.uniq
+  all_tags = articles.map { |a| a[:tags] }.flatten.compact.uniq
 
   # Get tags that already have pages
-  tags_with_pages = all_posts.map { |p| p.attributes[:tags] }
+  tags_with_pages = articles.map { |p| p.attributes[:tags] }
 
   # Get tags without pages
   tags_without_pages = all_tags - tags_with_pages

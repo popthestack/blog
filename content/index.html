@@ -1,7 +1,7 @@
 ---
 title:
 ---
-<% sorted_posts[0, 1].each do |post| %>
+<% sorted_articles[0, 1].each do |post| %>
   <article>
     <h1><%= link_to(post[:title], post.path) %></h1>
     <h2>
@@ -19,7 +19,7 @@ title:
 
 <div class="past-articles">
 <h1 class="previously">Previously,</h1>
-<% sorted_posts[1, 5].each do |post| %>
+<% sorted_articles[1, 5].each do |post| %>
   <article>
     <h1><%= link_to(post[:title], post.path) %></h1>
     <h2>

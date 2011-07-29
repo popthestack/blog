@@ -21,6 +21,16 @@ preprocess do
       "/drafts"
     )
   end
+
+  # exclude drafts unless we're on the dev branch
+  items.delete_if { |item| item[:status] == 'draft' } unless git_dev_branch?
+
+  # always exclude private posts
+  items.delete_if { |item| item[:status] == 'private' }
+
+  items.each do |item|
+    item[:created_at] = Date.parse(item[:created_at]) if item[:created_at].is_a?(String)
+  end
 end
 
 compile '/tag/*' do
@@ -55,21 +65,15 @@ end
 #end
 
 compile '/article/*' do
-  if git_dev_branch? or @item[:status] == 'publish' then
-    filter :erb
-    filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
-    filter :rdiscount
-    layout 'article'
-    layout 'default'
-  end
+  filter :erb
+  filter :absolutify  # make links/images all absolute for RSS readers (https://github.com/nvie/blog/blob/master/lib/absolutify.rb)
+  filter :rdiscount
+  layout 'article'
+  layout 'default'
 end
 
 route '/article/*' do
-  if git_dev_branch? or @item[:status] == 'publish' then
-    @item.identifier + 'index.html'
-  else
-    nil
-  end
+  @item.identifier + 'index.html'
 end
 
 compile '/feed/' do
