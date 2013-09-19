@@ -29,15 +29,6 @@ def build_tag_pages
   end
 end
 
-# Override link_for_tag functionality (to add .to_slug)
-module Nanoc3::Helpers
-  module Tagging
-    def link_for_tag(tag, base_url)
-      %[<a href="#{h base_url}#{h tag.to_slug}" rel="tag">#{h tag}</a>]
-    end
-  end
-end
-
 def articles_by_year_month
   result = {}
   current_year = current_month = year_h = month_a = nil
