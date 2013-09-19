@@ -1,7 +1,7 @@
 require 'sanitize'
 
 module Nanoc3::Helpers
-  module SanitizeHTML
+  module Sanitizing
     def sanitize(html)
       Sanitize.clean(html, Sanitize::Config::BASIC)
     end
