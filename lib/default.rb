@@ -1,15 +1,6 @@
 # All files in the 'lib' directory will be loaded
 # before nanoc starts compiling.
 
-include Nanoc3::Helpers::Blogging
-include Nanoc3::Helpers::Tagging
-#include Nanoc3::Helpers::Filtering
-#include Nanoc3::Helpers::HTMLEscape
-include Nanoc3::Helpers::LinkTo
-#include Nanoc3::Helpers::Rendering
-#include Nanoc3::Helpers::Text
-#include Nanoc3::Helpers::XMLSitemap
-
 def git_dev_branch?
   # TODO: What about feature branches? And tag branches?
   `git branch|grep -F '*'`.chomp == '* develop'
