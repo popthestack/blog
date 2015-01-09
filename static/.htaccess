@@ -1,0 +1,125 @@
+RewriteEngine On
+RewriteBase /
+RewriteCond %{HTTP_HOST} !^ryanmartinsen.com$ [NC]
+RewriteRule ^(.*)$ http://ryanmartinsen.com/$1 [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/contact/submit/?)
+RewriteRule ^contact/submit /app/contact [PT,L]
+
+RewriteCond %{REQUEST_URI} (^/blog/?)
+RewriteRule ^blog/[0-9]+/[0-9]+/[0-9]+/([^/]+)/?.* /article/$1/ [L,R=301]
+RewriteRule ^blog/author/.*$ / [L,R=301]
+RewriteRule ^blog/(.*)$ /$1 [L,R=301]
+RewriteRule ^blog$ / [L,R=301]
+
+RewriteRule ^[0-9]+/[0-9]+/[0-9]+/([^/]+)/?.* /article/$1/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/tag/?)$
+RewriteRule ^(.*)$ /tags/ [L,R=301]
+# Rewrite old WP tags pages.
+RewriteCond %{REQUEST_URI} (^/tag/.*/page/?.*)$
+RewriteRule ^tag/(.*)/page/?.*$ /tags/$1 [L,R=301]
+# Rewrite `/tag/foo` pages to `/tags/foo`.
+RedirectMatch 301 /tag/(.*) /tags/$1
+
+RewriteCond %{REQUEST_URI} (^/category/?)
+RewriteRule ^(.*)$ /tags/ [L,R=307]
+
+RewriteCond %{REQUEST_URI} (^/article/?)$
+RewriteRule ^(.*)$ /archives/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/archive/?)$
+RewriteRule ^(.*)$ /archives/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/more/?)$
+RewriteRule ^(.*)$ /about [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/contact/?)$
+RewriteRule ^(.*)$ /about [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/page/?.*)$
+RewriteRule ^(.*)$ / [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/index.php.*)$
+RewriteRule ^(.*)$ / [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/feed/?)$
+RewriteRule ^(.*)$ http://feeds.ryanmartinsen.com/blog/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/feed/rss2/?)$
+RewriteRule ^(.*)$ http://feeds.ryanmartinsen.com/blog/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/feed.xml)$
+RewriteRule ^(.*)$ http://feeds.ryanmartinsen.com/blog/ [L,R=301]
+
+RewriteCond %{REQUEST_URI} (^/index.xml)$
+RewriteRule ^(.*)$ http://feeds.ryanmartinsen.com/blog/ [L,R=301]
+
+Redirect 301 /feed/rss2/ http://feeds.ryanmartinsen.com/blog/
+Redirect 301 /testimonials.html http://www.ryanware.com/software/testimonials/
+Redirect 301 /contact.php http://www.ryanware.com/contact/
+Redirect 301 /contactus.html http://www.ryanware.com/contact/
+Redirect 301 /security.html http://www.ryanware.com/software/
+Redirect 301 /killdocs.html http://www.ryanware.com/software/kill_docs/
+Redirect 301 /time_thingy.html http://www.ryanware.com/software/time_thingy/
+Redirect 301 /mousetrap.html http://www.ryanware.com/software/mouse_trap/
+Redirect 301 /realpass.html http://www.ryanware.com/software/real_passwords/
+Redirect 301 /mr_notes.html http://www.ryanware.com/software/mr_notes/
+Redirect 301 /products.html http://www.ryanware.com/software/
+Redirect 301 /download.html http://www.ryanware.com/software/
+Redirect 301 /mouse_trap.html http://www.ryanware.com/software/mouse_trap/
+Redirect 301 /createlink.html http://www.ryanware.com/linktous.html
+Redirect 301 /main.html http://www.ryanware.com/
+Redirect 301 /cp_setup.zip http://www.ryanware.com/closepopup.exe
+Redirect 301 /security.html http://www.ryanware.com/security.htm
+Redirect 301 /runtime.htm http://www.ryanware.com/runtime.html
+Redirect 301 /contactus.html http://www.ryanware.com/contact/
+Redirect 301 /asycfilt.zip http://www.ryanware.com/download/asycfilt.zip
+Redirect 301 /close_popup4.zip http://www.ryanware.com/download/close_popup4.zip
+Redirect 301 /closepopup.exe http://www.ryanware.com/download/closepopup.exe
+Redirect 301 /closepopup.zip http://www.ryanware.com/download/closepopup.zip
+Redirect 301 /comcat.zip http://www.ryanware.com/download/comcat.zip
+Redirect 301 /comctl32.zip http://www.ryanware.com/download/comctl32.zip
+Redirect 301 /comdlg32.zip http://www.ryanware.com/download/comdlg32.zip
+Redirect 301 /ctl3d32.zip http://www.ryanware.com/download/ctl3d32.zip
+Redirect 301 /dlg_error_fix.zip http://www.ryanware.com/download/dlg_error_fix.zip
+Redirect 301 /easycontrol.zip http://www.ryanware.com/download/easycontrol.zip
+Redirect 301 /fastview32.zip http://www.ryanware.com/download/fastview32.zip
+Redirect 301 /hlhmcbo.zip http://www.ryanware.com/download/hlhmcbo.zip
+Redirect 301 /icon_hunt.zip http://www.ryanware.com/download/icon_hunt.zip
+Redirect 301 /killdocs.exe http://www.ryanware.com/download/killdocs.exe
+Redirect 301 /killdocs.zip http://www.ryanware.com/download/killdocs.zip
+Redirect 301 /killdocs152.zip http://www.ryanware.com/download/killdocs152.zip
+Redirect 301 /killdocs20.exe http://www.ryanware.com/download/killdocs20.exe
+Redirect 301 /mouse_trap.zip http://www.ryanware.com/download/mouse_trap.zip
+Redirect 301 /mouset.exe http://www.ryanware.com/download/mouset.exe
+Redirect 301 /mouset40.exe http://www.ryanware.com/download/mouset40.exe
+Redirect 301 /mousetrap.exe http://www.ryanware.com/download/mousetrap.exe
+Redirect 301 /mousetrap.zip http://www.ryanware.com/download/mousetrap.zip
+Redirect 301 /mousetrap_fix.zip http://www.ryanware.com/download/mousetrap_fix.zip
+Redirect 301 /mr_applaunch.zip http://www.ryanware.com/download/mr_applaunch.zip
+Redirect 301 /mr_internet.zip http://www.ryanware.com/download/mr_internet.zip
+Redirect 301 /mr_internet35.zip http://www.ryanware.com/download/mr_internet35.zip
+Redirect 301 /mr_notes.zip http://www.ryanware.com/download/mr_notes.zip
+Redirect 301 /mr_notes40.zip http://www.ryanware.com/download/mr_notes40.zip
+Redirect 301 /mrinternet.exe http://www.ryanware.com/download/mrinternet.exe
+Redirect 301 /msvbvm50.exe http://www.ryanware.com/download/msvbvm50.exe
+Redirect 301 /msvbvm50.zip http://www.ryanware.com/download/msvbvm50.zip
+Redirect 301 /notes.zip http://www.ryanware.com/download/notes.zip
+Redirect 301 /oleaut32.zip http://www.ryanware.com/download/oleaut32.zip
+Redirect 301 /olepro32.zip http://www.ryanware.com/download/olepro32.zip
+Redirect 301 /quick_bin.zip http://www.ryanware.com/download/quick_bin.zip
+Redirect 301 /realpass.exe http://www.ryanware.com/download/realpass.exe
+Redirect 301 /realpass.zip http://www.ryanware.com/download/realpass.zip
+Redirect 301 /regsvr32.zip http://www.ryanware.com/download/regsvr32.zip
+Redirect 301 /riched32.zip http://www.ryanware.com/download/riched32.zip
+Redirect 301 /richtx32.zip http://www.ryanware.com/download/richtx32.zip
+Redirect 301 /rtf_error_fix.zip http://www.ryanware.com/download/rtf_error_fix.zip
+Redirect 301 /siti_home.zip http://www.ryanware.com/download/siti_home.zip
+Redirect 301 /stdole2.zip http://www.ryanware.com/download/stdole2.zip
+Redirect 301 /tahtml.zip http://www.ryanware.com/download/tahtml.zip
+Redirect 301 /time_thingy.zip http://www.ryanware.com/download/time_thingy.zip
+Redirect 301 /tooltip.zip http://www.ryanware.com/download/tooltip.zip
+Redirect 301 /tthingy_setup.exe http://www.ryanware.com/download/tthingy_setup.exe
+Redirect 301 /vote.zip http://www.ryanware.com/download/vote.zip
+Redirect 301 /yasdsdu.zip http://www.ryanware.com/download/yasdsdu.zip

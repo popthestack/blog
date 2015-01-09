@@ -1,0 +1,12 @@
+{{ template "chrome/header.html" . }}
+
+<h1 id="title">{{ .Title }}</h1>
+
+<ul class="tags">
+    {{ $data := .Data }}
+    {{ range $key, $value := .Data.Terms }}
+        <li><a href="/{{ $data.Plural }}/{{ $key | urlize }}" title="{{ len $value }} articles tagged {{ $key }}">{{ $key }}</a></li>
+    {{ end }}
+</ul>
+
+{{ template "chrome/footer.html" . }}

@@ -1,0 +1,20 @@
+<header>
+    <div id="inner-header">
+        <h1 class="name">
+            <a href="/">
+                <span class="given-name" data-text="Ryan">Ryan</span>
+                <span class="family-name" data-text="Martinsen">Martinsen</span>
+            </a>
+        </h1>
+        <div class="nav">
+            <a href="/">Home</a> <a href="/about">About</a>
+            <a href="/archives">Archives</a>
+            <a href="/projects">Projects</a>
+        </div>{{ if and (isset .Params "kind") (eq .Params.kind "resume") }}
+        <div class="print-only">
+            <i class="fa fa-envelope" aria-hidden="true"></i> ryan@ryanmartinsen.com
+            <br/><i class="fa fa-link" aria-hidden="true"></i> http://ryanmartinsen.com
+        </div>
+{{ end }}
+    </div>
+</header>

@@ -1,0 +1,57 @@
+{{ template "chrome/header.html" . }}
+<!--         <section id="prev">
+          {{if .Prev}}Previous post: <a class="previous" href="{{.Prev.Permalink}}"><i class="icon-arrow-left"></i> {{.Prev.Title}}</a><br>{{end}}
+        </section>
+
+        <section id="next">
+          {{if .Next}}Next post: <a class="next" href="{{.Next.Permalink}}">{{.Next.Title}} <i class="icon-arrow-right"></i></a>{{end}}
+        </section> -->
+
+<article>
+  <h1>
+    {{ if .Draft }}
+      Draft: 
+    {{ end }}
+    {{ .Title }}
+  </h1>
+  <p class="meta">
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05+0000" }}">
+        {{ .Date.Format "January 2, 2006" }}
+    </time>
+  </p>
+  <div class="post">
+    {{ .Content }}
+  </div>
+  <section id="meta">
+    <span class="byline author vcard">
+      Posted by <span class="fn"><a href="/about" title="About the author (Ryan Martinsen)" rel="author">Ryan Martinsen</a></span>
+    </span>
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05+0000" }}">{{ .Date.Format "January 2, 2006" }}</time>
+    {{ if and (isset .Params "tags") (gt (len .Params.tags) 0) }}
+    <tags>{{ range $i, $e := .Params.tags }}{{ if $i }}, {{ end }}<a href="/tags/{{ $e | urlize }}">{{ $e }}</a>{{ end }}</tags>
+    {{ end }}
+  </section>
+  <section id="comments"{{ if or (isset .Params "comments") (isset .Params "comments_open") }} class="has-comments"{{ end }}><a name="comments"></a>
+    {{ if isset .Params "comments" }}
+      <h2>Comments</h2>
+      <ol>
+      {{ range .Params.comments }}{{ $author_is_me := eq .email "9d067@ryanware.com" }}
+        <li{{ if $author_is_me }} class="site-author"{{ end }}>
+          <span class="author">
+            {{ if .url }}
+              <a href="{{ .url }}"{{ if not $author_is_me }} rel="external nofollow"{{ end }}>{{ .name | html }}</a>
+            {{ else }}{{ .name | html }}{{ end }}
+          </span>
+
+          <time datetime="{{ .date }}">
+              {{ .date.Format "January 2, 2006 at 3:04 PM" }}
+          </time>
+
+          {{ .comment | markdownify }}
+        </li>
+      {{ end }}
+      </ol>
+    {{ end }}
+  </section>
+</article>
+{{ template "chrome/footer.html" . }}

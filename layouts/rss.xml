@@ -1,0 +1,20 @@
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <id>http://ryanmartinsen.com/</id>
+  <title>Ryan Martinsen</title>
+  <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
+  <link rel="alternate" href="http://ryanmartinsen.com/"/>
+  <link rel="self" href="http://feeds.ryanmartinsen.com/blog/"/>
+  <author>
+    <name>Ryan Martinsen</name>
+    <uri>http://ryanmartinsen.com/about</uri>
+  </author>{{ range first 10 (where .Data.Pages "Section" "article") }}
+  <entry>
+    <id>tag:ryanmartinsen.com,{{ .Date.Format "2006-01-02" }}:{{ .RelPermalink }}</id>
+    <title type="html">{{ .Title }}</title>
+    <published>{{ .Date.Format "2006-01-02T15:04:05Z" }}</published>
+    <updated>{{ .Date.Format "2006-01-02T15:04:05Z" }}</updated>
+    <link rel="alternate" href="{{ .Permalink }}"/>
+    <content type="html">{{ .Content | html }}</content>
+  </entry>
+  {{ end }}
+</feed>

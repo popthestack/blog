@@ -1,0 +1,41 @@
+.print-only {
+  display: inline;
+}
+
+.no-print {
+	display: none;
+}
+
+#inner-header .nav {
+  display: none;
+}
+
+footer .footer-right {
+  display: none;
+}
+
+section#meta tags {
+  display: none;
+}
+
+body.resume #content {
+  margin-top: 0;
+}
+body.resume #content h1 {
+  display: none;
+}
+body.resume #content h2 {
+  margin-top: 10px;
+}
+body.resume footer {
+  display: none;
+}
+body.resume #inner-header .print-only {
+  float: right;
+  margin-top: 3px;
+  font-size: 0.85em;
+  text-align: right;
+}
+body.resume #content {
+  font-size: 0.95em;
+}

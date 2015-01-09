@@ -1,0 +1,29 @@
+{{ $isHomepage := (eq (add .Site.BaseUrl "/") (add .Permalink "")) }}{{ $isDev := (eq (add .Site.BaseUrl "") (add "http://localhost:1313" "")) }}<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    {{ if isset .Params "shortlink" }}
+    <link rel="shortlink" type="text/html" href="{{ .Params.shortlink }}" />
+    {{ else if $isHomepage }}
+    <link rel="shortlink" type="text/html" href="{{ .Site.Params.shortlink }}" />
+    {{ end }}
+    <title>{{ if .Title }}{{ .Title }} | {{ end }}Ryan Martinsen</title>
+    {{ if isset .Params "meta_description" }}
+    <meta name="description" content="{{ .Params.meta_description }}" />
+    {{ else if $isHomepage }}
+    <meta name="description" content="{{ .Site.Params.meta_description }}" />
+    {{ end }}
+    <link rel="stylesheet" type="text/css" href="/style.css" />
+    <link rel="stylesheet" type="text/css" href="/print.css" media="print" />
+    <link rel="alternate" type="application/atom+xml" href="http://feeds.ryanmartinsen.com/blog" />
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />{{ if not $isDev }}
+    <script type="text/javascript" src="/dessert/?js"></script>
+{{ end }}
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body class="{{ if isset .Params "kind" }}{{ .Params.kind }}{{ else if .IsPage }}{{ .Type }}{{ else if .Section }}{{ .Section }}{{ end }}">
+    {{ template "chrome/nav.html" . }}
+   <div id="wrapper">
+         <div id="content">

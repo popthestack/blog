@@ -1,0 +1,22 @@
+{{ template "chrome/header.html" . }}
+
+    {{ range first 3 (where .Data.Pages "Section" "article") }}
+        {{ .Render "summary" }}
+    {{ end }}
+
+    <div class="past-articles">
+        <h1 class="previously">Previously,</h1>
+        {{ range $index, $page := first 8 (where .Data.Pages "Section" "article") }}{{if gt $index 2 }}
+            <article>
+              <h1>{{ if .Draft }}Draft: {{ end }}<a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+              <p class="meta">
+                <time datetime="{{ .Date.Format "2006-01-02T15:04:05+0000" }}">
+                    {{ .Date.Format "January 2, 2006" }}
+                </time>
+              </p>
+            </article>
+        {{end}}{{end}}
+        <a href="/archives">Read more in the archives</a>
+    </div>
+
+{{ template "chrome/footer.html" . }}

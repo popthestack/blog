@@ -1,0 +1,17 @@
+{{ template "chrome/header.html" . }}
+
+<h1>Archives</h1>
+
+<div id="archive">
+{{ range (where .Site.Pages "Section" "article").GroupByDate "January 2006" }}
+    <a name="{{ .Key | urlize }}"></a>
+    <h2>{{ .Key }}</h2>
+    <ul>
+        {{ range .Pages }}
+            <li>{{ if .Draft }}Draft: {{ end }}<a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></li>
+        {{ end }}
+    </ul>
+{{ end }}
+</div>
+
+{{ template "chrome/footer.html" . }}

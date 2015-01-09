@@ -1,0 +1,443 @@
+/*
+ *   I started with layout by Keith Donegan of http://www.code-sucks.com and customized it further.
+ */
+/* 
+ *   Reset first. Modified version of Eric Meyer and Paul Chaplin reset 
+ *     from http://meyerweb.com/eric/tools/css/reset/ 
+*/
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+center, dl, dt, dd,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+header, nav, post, footer
+{border: 0; margin: 0; outline: 0; padding: 0; background: transparent; vertical-align: baseline;}
+
+blockquote, q {quotes: none;}
+blockquote:before,blockquote:after,q:before,q:after {content: ''; content: none;}
+
+header, nav, post, footer {display: block;}
+
+body {
+ font-family: "Lucida Grande","Lucida Sans Unicode",Helvetica,Arial,Verdana,sans-serif;
+ font-size: .9em;
+ border-top: 10px solid #0099CF;
+}
+
+#wrapper {
+ margin: 0 auto;
+ width: 670px;
+}
+a {
+ text-decoration: none;
+ color: #28B7E9;
+}
+a:hover {
+ text-decoration: underline;
+}
+a:visited {
+ /*for ryanware color: #FF7E00;*/
+ /*color: #0099CF;*/
+}
+h1, h2, h3, h4, h5, h6 {
+ /*font-weight: normal;*/
+ text-rendering: optimizelegibility;
+}
+h1 {
+ font-size: 1.5em;
+}
+h1, h1 a, h2, #comments h2 {
+ color: #333;
+}
+
+h2 {
+ font-size: 1.1em;
+}
+
+article {
+ border-bottom: 1px solid #DBDBDB;
+ margin-bottom: 2em;
+ padding-bottom: 1em;
+ display: block;
+}
+body.article article {
+ margin-bottom: 0;
+ padding-bottom: 0;
+}
+article .post a {
+  text-decoration: underline;
+}
+article .post a:hover {
+  text-decoration: none;
+}
+article h1 a:hover {
+  color: #0099CF;
+}
+article .post a:visited {
+  color: #A73911;
+}
+article p.meta {
+  margin: 0;
+}
+article:last-child, div.past-articles article, div.tagged-articles article {
+ border: none;
+}
+div.past-articles article, div.tagged-articles article {
+ padding-bottom: 0;
+ margin-bottom: 1em;
+}
+article p.meta, div.past-articles h2, div.tagged-articles h2 {
+ font-size: 0.8em;
+ color: #808080;
+}
+div.past-articles h2 a, div.tagged-articles h2 a {
+ color: #808080;
+}
+article div.meta {
+ color: #808080;
+ font-size: 0.9em;
+}
+article #meta {
+  border-top: 1px solid #DBDBDB;
+  color: #808080;
+  margin-top: 2em;
+  margin-bottom: -1em;
+  padding-top: 1em;
+}
+
+.separator, #meta .byline + time:before, #meta .byline ~ tags:before {
+    content: "—";
+    display: inline-block;
+    padding: 0 0.4em 0 0.2em;
+}
+
+div.past-articles h1, div.past-articles h1 a, div.tagged-articles h1 a {
+ color: #808080;
+ font-weight: normal;
+}
+div.past-articles h1.previously {
+ font-size: 2.1em;
+ margin-bottom: 1em;
+ font-weight: normal;
+}
+div.tagged-articles {
+ margin-top: 1.2em;
+}
+div.tagged-articles h1 {
+ font-size:1.7em;
+ font-weight: normal;
+}
+
+div.past-articles.projects {
+  margin-top:20px;
+}
+div.past-articles.projects h1 {
+  font-size:1.4em;
+}
+div.past-articles.projects h1 a {
+  color: #28B7E9;
+}
+
+ul.tags {
+ padding-left: 0;
+}
+ul.tags li {
+ list-style: none;
+ display: inline;
+ margin-right: 12px;
+ margin-left: 0 !important;
+}
+
+#comments {
+  margin-top: 2em;
+  color: #808080;
+}
+#comments.has-comments {
+  margin-top: 3.5em;
+}
+#comments h2 {
+  font-size: 1.2em;
+}
+#comments ol li {
+  margin-top: 1em;
+}
+#comments li time {
+  display:block;
+  font-size: .8em;
+}
+#comments li .author {
+  color: #000;
+}
+#comments li p {
+  color: #000;
+}
+
+div#archive {
+ margin-top: 1em;
+}
+div#archive ul {
+ padding-left: 1.2em;
+ list-style: none;
+}
+div#archive ul li p, div.tagged-articles article h1 p {
+  margin: 0;
+  display: inline;
+}
+
+body header {
+ width: 100%;
+ color: #333;
+ padding: 0 0 10px 0;
+ height: 40px;
+ margin: 0px 0px 5px 0px;
+ background: #F5F5F5;
+}
+#inner-header {
+ margin: 0 auto;
+ width: 670px;
+ padding: 10px;
+}
+#inner-header .name {
+ float: left;
+ margin-top: -4px;
+ /*margin-left: -2px;*/
+ font-size: 2.4em;
+}
+#inner-header .name a {
+ color: #000;
+ /*font-size: 2em;*/
+}
+#inner-header .name a:hover {
+ text-decoration: none;
+ color: #0099CF;
+}
+#inner-header .nav {
+ float: right;
+ font-size: 1.2em;
+ margin-top: 11px;
+ /*font-variant: small-caps;*/
+ text-transform: lowercase;
+}
+#inner-header .nav a {
+ padding-left:13px;
+ font-size: 0.9em;
+}
+
+#content {
+ width: 668px;
+ color: #333;
+ margin: 25px 2px 10px 2px;
+ padding: 5px 0 0 0;
+ line-height: 1.4em;
+ font-size: 1.1em;
+}
+
+blockquote {
+ border-left: 2px solid #CCC;
+ margin: 15px 30px 15px 10px;
+ padding-left: 20px;
+}
+blockquote, strike {
+ color: #666666;
+}
+
+.footnotes {
+  border-top: 1px solid #C7C6C8;
+}
+.footnotes p {
+  font-size: 0.9em;
+  display: inline;
+}
+.footnotes ol {
+  margin-top: 2em;
+}
+.footnotes li {
+  margin-bottom: 12px;
+}
+.footnotes hr {
+  display: none;
+}
+sup {
+  bottom: 0.35em;
+  height: 0;
+  line-height: 1;
+  padding: 0 0.2em;
+  position: relative;
+  vertical-align: baseline;
+}
+
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+img.right, img.left {
+  border: 1px solid #000000;
+}
+img.right {
+  margin: 10px;
+}
+img.left {
+  margin: 5px 10px 0 0;
+}
+img#about-avatar {
+  float: right;
+  width: 225px;
+  border: 1px solid #000000;
+  margin: 10px;
+}
+
+body.resume #content h1 {
+  font-size: 2em;
+  padding-bottom: 8px;
+}
+body.resume #content h2 {
+  margin: 20px 0 15px;
+  font-size: 1.5em;
+}
+body.resume #content h3 {
+  color: #666666;
+}
+body.resume h3 .position {
+  color: #000000;
+}
+body.resume .date {
+  font-style: italic;
+}
+body.resume .resume-info {
+  float: right;
+  font-size: .9em;
+  margin-top: -31px;
+}
+body.resume .resume-info ul {
+  padding-left: 0;
+}
+body.resume .resume-info ul li {
+  list-style: none;
+}
+body.projects a.resume:after {
+    color: #BABABA;
+    content: " »";
+}
+
+body footer {
+ color: #333;
+ width: 670px;
+ border-top: 1px solid #ccc;
+ margin: 0px 0px 25px 0px;
+ padding: 10px 0 0 0;
+ text-transform: lowercase;
+}
+body footer .footer-left {
+ float: left;
+}
+body footer .footer-right {
+ float: right;
+}
+body footer .footer-right a {
+ padding-left:10px;
+ font-size: .8em;
+}
+
+/* Mobile Layout: 320px. */
+@media only screen and (max-width: 767px) {
+ body header {
+  height: 75px;
+ }
+ #inner-header {
+  padding: 0;
+ }
+ #inner-header .name {
+  float: none;
+  margin-top: 0px;
+  text-align: center;
+  font-size: 2em;
+ }
+ #inner-header .nav {
+  float: none;
+  margin: 0 auto;
+  width: 70%;
+  text-align: center;
+ }
+ #inner-header .nav a {
+  padding: 5px;
+ }
+ #wrapper, #inner-header, body footer {
+  width: 252px;
+ }
+ #content {
+  width: 250px;
+ }
+ img {
+  max-width: 100%;
+ }
+ body footer .footer-left {
+  float: none;
+  text-align: center;
+ }
+ body footer .footer-right {
+  float: none;
+  margin: 0 auto;
+  text-align: center;
+  width: 86%;
+ }
+ body footer .footer-right a {
+  padding: 5px;
+ }
+ body.resume .resume-info {
+  float: none;
+  margin-top: 0;
+ }
+}
+
+/* Wide Mobile Layout: 480px. */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+ body header {
+  height: 39px;
+ }
+ #inner-header {
+  padding: 0;
+ }
+ #inner-header .name {
+  float: left;
+  margin-top: 8px;
+ }
+ #inner-header .nav {
+  float: none;
+  margin-top: 0;
+  width: 90%;
+  padding-top: 4px;
+ }
+ #wrapper, #inner-header, body footer {
+  width: 436px;
+ }
+ #content {
+  width: 434px;
+ }
+ body footer .footer-left {
+  float: left;
+  text-align: left;
+ }
+ body footer .footer-right {
+  float: right;
+  margin: none;
+  text-align: right;
+ }
+ body footer .footer-right a {
+  padding: 0 0 0 10px;
+ }
+ body.resume .resume-info {
+  float: right;
+ }
+ body.resume .resume-info ul {
+   padding-left: 15px;
+ }
+}
+
+.print-only {
+  display: none;
+}

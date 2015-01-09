@@ -1,0 +1,8 @@
+	</div>
+    {{ template "chrome/footer_nav.html" . }}
+</div>
+{{ $isDev := (eq (add .Site.BaseUrl "") (add "http://localhost:1313" "")) }}{{ if not $isDev }}
+<!-- This is where I add GA tracking. -->
+{{ end }}
+</body>
+</html>

@@ -1,0 +1,17 @@
+<article>
+  <h1>{{ if .Draft }}Draft: {{ end }}<a href="{{ .Permalink }}" title="{{ .Title }}">{{ .Title }}</a></h1>
+  <p class="meta">
+    <time datetime="{{ .Date.Format "2006-01-02T15:04:05+0000" }}">
+        {{ .Date.Format "January 2, 2006" }}
+    </time>
+  </p>
+  <div class="post">
+     {{ .Content }}
+  </div>
+  <div class="meta">
+    <a href="{{ .Permalink }}" title="{{ .Title }}">Permalink</a>
+    {{ if isset .Params "comments" }}
+        | <a href="{{ .Permalink }}#comments" title="{{ .Title }}">Comments</a>
+    {{ end }}
+  </div>
+</article>

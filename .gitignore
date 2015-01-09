@@ -1,5 +1,5 @@
 .*.sw[a-z]
 *.un~
 Session.vim
-/tmp
-/output
+/public
+.DS_Store

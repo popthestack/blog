@@ -1,0 +1,5 @@
+<p>
+    <a href="http://www.flickr.com/photos/utahlindyhopper/{{ .Get "id" }}/" title="{{ .Get "title" }}">
+        <img src="{{ .Get "src" }}" alt="{{ .Get "title" }}" class="{{ .Get "position" }}" style="float:{{ .Get "position" }};{{ with .Get "margin"}}{{.}};{{ end }}" />
+    </a>
+</p>

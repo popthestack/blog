@@ -1,20 +1,4 @@
---- 
+---
+type: archive
 title: Archives
 ---
-
-<h1>Archives</h1>
-
-<div id="archive">
-  <% articles_by_year_month.each do |year, year_items| %>
-    <% year_items.each do |month, month_items| %>
-      <a name="<%= year %>-<%= month %>"></a>
-      <h2><%= "#{Date::MONTHNAMES[month]} #{year}" %></h2>
-
-      <ul>
-        <% month_items.each do |post| %>
-          <li><%= "Draft: " if post[:status] == 'draft' %><%= link_to(post[:title], post.path) %></li>
-        <% end %>
-      </ul>
-    <% end %>
-  <% end %>
-</div>

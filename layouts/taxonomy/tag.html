@@ -1,0 +1,18 @@
+{{ template "chrome/header.html" . }}
+
+<h1>Articles tagged “{{ .Title }}”</h1>
+
+<div class="tagged-articles">
+{{ range .Data.Pages }}
+  <article>
+    <h1><a href="{{ .Permalink }}">{{ .Title | markdownify }}</a></h1>
+    <p class="meta">
+      <time datetime="{{ .Date.Format "2006-01-02T15:04:05+0000" }}">
+        {{ .Date.Format "January 2, 2006" }}
+      </time>
+    </p>
+  </article>
+{{ end }}
+</div>
+
+{{ template "chrome/footer.html" . }}
