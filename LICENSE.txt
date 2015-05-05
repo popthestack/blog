@@ -1,6 +1,7 @@
 RYANMARTINSEN.COM LICENSE
-Copyright (C) 2011 Ryan Martinsen
+Copyright (C) 2015 Ryan Martinsen
 
 Everyone is permitted to look at, experiment with, use, and
 learn from the code of this blog, but not to steal or republish
 its content or design.
+
